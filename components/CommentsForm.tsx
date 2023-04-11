@@ -104,7 +104,7 @@ const CommentsForm: FC<Props> = ({ slug }) => {
         </div>
       </div>
       {
-        error && <p className='text-xs text-red-500'>All fields are required</p>
+        error && <p className='text-xs text-red-500'>Todos los campos son requeridos</p>
       }
       <div className="mt-8">
         <button

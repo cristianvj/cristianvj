@@ -1,8 +1,16 @@
-export interface Post {
-  node: NodePost;
+export interface PropsPost {
+  post: Post;
 };
 
-export interface NodePost {
+export interface PropsPostNode {
+  posts: PostNode[];
+};
+
+export interface PostNode {
+  node: Post;
+};
+
+export interface Post {
   author: Author;
   createdAt: string;
   slug: string;
@@ -11,7 +19,7 @@ export interface NodePost {
   featuredImage: {
     url: string;
   };
-  categories: Categorie[];
+  categories: Category[];
 };
 
 export type Author = {
@@ -23,7 +31,7 @@ export type Author = {
   };
 };
 
-export type Categorie = {
+export type Category = {
   name: string;
   slug: string;
 };

@@ -1,9 +1,20 @@
 import { gql, GraphQLClient } from "graphql-request";
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || "";
 const graphcmsToken = process.env.GRAPHCMS_TOKEN
 
-export default async function asynchandler(req, res) {
+interface Req {
+  body: Body;
+}
+
+type Body = {
+  name: string;
+  email: string;
+  comment: string;
+  slug: string;
+};
+
+export default async function asynchandler(req: Req, res: any) {
 
   const graphQLClient = new GraphQLClient((graphqlAPI), {
     headers: {

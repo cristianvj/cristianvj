@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&display=swap');
@@ -20,7 +16,7 @@ body {
     content: "";
     width: 100%;
     height: 100vh;
-    background-color: rgb(23 37 84);
+    background-color: rgb(17, 29, 71);
     //background-image: linear-gradient(to right, #34359b, #3946a6, #4156b0, #4a66b9, #5676c1, #4b83c9, #428fce, #3d9ad2, #01a4d1, #00adca, #00b5bf, #27bbb1);
     // background: #D3D3D3;
     //background-image: url("../public/bg.jpg");
@@ -31,7 +27,7 @@ body {
   }
 }
 
-.titulo-cristian {
+.satisfy-font {
   font-family: 'Satisfy', cursive;
 }
 
@@ -47,6 +43,7 @@ body {
   &:hover{
     & .arrow-btn{
       width: 60px;
+      height: 60px;
     }
   }
 }
@@ -57,9 +54,12 @@ body {
     width: 50px;
     &:hover{
       width: 60px;
+      height: 60px;
+      & svg {
+        margin-top: 6px;
+      }
     }
   }
-  
 }
 
 a {

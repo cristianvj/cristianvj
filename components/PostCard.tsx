@@ -1,17 +1,11 @@
 import React, {FC} from 'react';
 import Link from 'next/link';
 
-import { Post } from "../interfaces";
+import { PropsPost } from "../interfaces";
 
 import moment from 'moment';
 
-interface PostNode {
-  postNode: Post;
-};
-
-const PostCard: FC<PostNode> = ({ postNode }) => {
-  
-  const post = postNode.node;
+const PostCard: FC<PropsPost> = ({ post }) => {
 
   return (
     <div className='bg-white shadow-lg rounded-lg p-0 lg:p-4 pb-12 mb-8'>

@@ -7,8 +7,8 @@ import { getRecentPosts, getSimilarPosts } from '../services';
 import { Categorie, NodePost } from '../interfaces';
 
 interface Props {
-  categories: Categorie[];
-  slug: string;
+  categories?: Categorie[];
+  slug?: string;
 };
 
 const PostWidget: FC<Props> = ({ categories, slug }) => {
@@ -35,12 +35,11 @@ const PostWidget: FC<Props> = ({ categories, slug }) => {
       {
         relatedPosts.map( post => (
           <div key={post.title} className='flex items-center w-full mb-4'>
-            <div className="w-16 flex-none">
+            <div className="w-15 flex-none">
               <img 
                 src={post?.featuredImage?.url} 
                 alt={post.title}
-                height="60px"
-                width="60px"
+                style={{ width: "60px", height: "60px" }}
                 className="align-middle rounded-full" 
               />
             </div>
