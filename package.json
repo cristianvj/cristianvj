@@ -6,15 +6,26 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "@graphcms/rich-text-react-renderer": "^0.6.1",
+    "@graphcms/rich-text-types": "^0.5.0",
+    "@react-three/drei": "^9.65.2",
+    "@react-three/fiber": "^8.12.0",
+    "framer-motion": "^10.11.5",
     "graphql": "^16.3.0",
     "graphql-request": "^4.2.0",
     "html-react-parser": "^1.4.9",
+    "maath": "^0.5.3",
     "moment": "^2.29.1",
     "next": "latest",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-multi-carousel": "^2.8.0",
-    "sass": "^1.49.9"
+    "react-parallax-tilt": "^1.7.129",
+    "react-router-dom": "^6.10.0",
+    "react-vertical-timeline-component": "^3.6.0",
+    "sass": "^1.49.9",
+    "three": "^0.151.3"
   },
   "devDependencies": {
     "@types/node": "17.0.4",

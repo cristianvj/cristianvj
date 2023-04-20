@@ -1,8 +1,19 @@
 import type { NextPage } from 'next';
 
 import { PropsPostNode } from '../interfaces';
+import { Hero, About, Tech, Works, Contact, Experience, StarsCanvas } from '../components';
 
 const Home: NextPage<PropsPostNode> = () => (
-  <h1 className="text-white text-5xl">Index with 3d</h1>
+  <> 
+    <Hero/>
+    <About/>
+    <Experience/>
+    <Tech/>
+    <Works/>
+    <div className="relative z-0">
+      <Contact/>
+      <StarsCanvas/>
+    </div>
+  </>
 )
 export default Home;

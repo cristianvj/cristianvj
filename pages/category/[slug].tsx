@@ -1,11 +1,13 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import React, { FC } from 'react';
+import { NextRouter, useRouter } from 'next/router';
 
 import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Categories, Loader } from '../../components';
+import { PropsPostNode } from '../../interfaces';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-const CategoryPost = ({ posts }) => {
-  const router = useRouter();
+const CategoryPost: FC<PropsPostNode> = ({ posts }) => {
+  const router: NextRouter = useRouter();
 
   if (router.isFallback) {
     return <Loader />;
@@ -31,8 +33,8 @@ const CategoryPost = ({ posts }) => {
 export default CategoryPost;
 
 // Fetch data at build time
-export async function getStaticProps({ params }) {
-  const posts = await getCategoryPost(params.slug);
+export const getStaticProps: GetStaticProps = async({params}) => {
+  const posts = params?.slug && await getCategoryPost(params.slug);
 
   return {
     props: { posts },
@@ -41,8 +43,8 @@ export async function getStaticProps({ params }) {
 
 // Specify dynamic routes to pre-render pages based on data.
 // The HTML is generated at build time and will be reused on each request.
-export async function getStaticPaths() {
-  const categories = await getCategories();
+export const getStaticPaths: GetStaticPaths  = async () => {
+  const categories: {slug: string}[] = await getCategories();
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),
     fallback: true,

@@ -1,5 +1,5 @@
 import { request, gql } from 'graphql-request';
-import { Categorie, Comment } from '../interfaces';
+import { Category, Comment } from '../interfaces';
 
 const graphqlAPI: string = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || "";
 
@@ -55,7 +55,7 @@ export const getCategories = async () => {
   return result.categories;
 };
 
-export const getPostDetails = async (slug: string) => {
+export const getPostDetails = async (slug: string | string[]) => {
   const query = gql`
     query GetPostDetails($slug : String!) {
       post(where: {slug: $slug}) {
@@ -89,7 +89,7 @@ export const getPostDetails = async (slug: string) => {
   return result.post;
 };
 
-export const getSimilarPosts = async (categories: Categorie[], slug: string) => {
+export const getSimilarPosts = async (categories: Category[] | string[], slug: string) => {
   const query = gql`
     query GetPostDetails($slug: String!, $categories: [String!]) {
       posts(
@@ -145,7 +145,7 @@ export const getAdjacentPosts = async (createdAt: string, slug: string) => {
   return { next: result.next[0], previous: result.previous[0] };
 };
 
-export const getCategoryPost = async (slug: string) => {
+export const getCategoryPost = async (slug: string | string[]) => {
   const query = gql`
     query GetCategoryPost($slug: String!) {
       postsConnection(where: {categories_some: {slug: $slug}}) {

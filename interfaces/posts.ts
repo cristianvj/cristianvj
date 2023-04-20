@@ -1,9 +1,15 @@
+import { ElementNode } from '@graphcms/rich-text-types';
+
 export interface PropsPost {
   post: Post;
 };
 
 export interface PropsPostNode {
   posts: PostNode[];
+};
+
+export interface PropsPostContent {
+  post: PostContent;
 };
 
 export interface PostNode {
@@ -22,6 +28,14 @@ export interface Post {
   categories: Category[];
 };
 
+export interface PostContent extends Post {
+  content: {
+    raw: {
+      children: ElementNode[];
+    };
+  };
+};
+
 export type Author = {
   bio: string;
   name: string;
@@ -31,14 +45,19 @@ export type Author = {
   };
 };
 
+export type PropsCategory = {
+  props: Category;
+};
+
 export type Category = {
   name: string;
   slug: string;
 };
 
 export type Comment = {
-  name: string, 
-  email: string, 
-  comment: string, 
-  slug: string
+  name: string;
+  email: string;
+  comment: string; 
+  slug: string;
+  createdAt?: string;
 };
