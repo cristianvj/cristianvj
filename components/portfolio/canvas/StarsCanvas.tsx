@@ -2,16 +2,19 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import { random } from "maath";
 import { PointMaterial, Points } from "@react-three/drei";
+import { Mesh } from "three";
 
-const Stars = (props) => {
+const Stars = (props: any) => {
 
-  const ref = useRef();
+  const ref = useRef<Mesh>(null);
 
   const sphere = random.inSphere(new Float32Array(5000), { radius: 1.2 });
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
+    if (ref?.current?.rotation) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
+    }
   });
   
   return (

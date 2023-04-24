@@ -5,7 +5,7 @@ import { Post } from '../../interfaces';
 
 interface Props {
   post: Post;
-  position: "LEFT" | "RIGHT";
+  position?: "LEFT" | "RIGHT";
 }
 
 const AdjacentPostCard: FC<Props> = ({ post, position }) => (

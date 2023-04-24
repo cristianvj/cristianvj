@@ -1,14 +1,30 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { FC } from "react";
 
 import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../../motion";
 import Tilt from 'react-parallax-tilt';
+
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../../motion";
+
 import { github } from "../../public/assets";
 import { styles } from "../../styles/styles";
 import { projects } from "../../utils/constants";
 
-const ProjectCard = ({
+interface Props {
+  index: number;
+  name: string;
+  description: string;
+  tags: {
+    name: string;
+    color: string;
+  }[];
+  image: {
+    src: string;
+  };
+  source_code_link: string;
+};
+
+const ProjectCard: FC<Props> = ({
   index,
   name,
   description,
@@ -17,16 +33,11 @@ const ProjectCard = ({
   source_code_link,
 }) => {
 
+  const defaultOptions = {}
+
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
-      >
+      <Tilt className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'>
         <div className='relative w-full h-[230px]'>
           <img
             src={image.src}

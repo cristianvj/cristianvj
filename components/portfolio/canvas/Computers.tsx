@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { useGLTF } from '@react-three/drei';
 
 interface Props {
@@ -11,7 +12,7 @@ const Computers: FC<Props> = ({ isMobile }) => {
   
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} gorundColor='black' />
+      <hemisphereLight intensity={0.15} groundColor='black' />
       <pointLight intensity={1} position={[-.5,1.5,-1.5]}/>
       <spotLight 
         position={[-20, 50, 10]}

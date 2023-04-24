@@ -3,8 +3,17 @@ import { fadeIn, textVariant } from "../../motion";
 import { services } from "../../utils/constants";
 import { SectionWrapper } from "../hoc";
 import Tilt from "react-parallax-tilt";
+import { FC } from "react";
 
-const ServiceCard = ({ index, title, icon }) => (
+interface Props {
+  index: number;
+  title: string;
+  icon: {
+    src: string;
+  };
+};
+
+const ServiceCard: FC<Props> = ({ index, title, icon }) => (
   <Tilt 
     className='xs:w-[250px] w-full'
   >

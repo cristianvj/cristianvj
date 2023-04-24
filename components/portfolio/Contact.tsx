@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   
-  const formRef = useRef();
+  const formRef = useRef(null);
   
   const [form, setForm] = useState({
     name: '',
@@ -18,13 +18,13 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement >) => {
     const { name, value } = e.target;
     
     setForm({...form, [name]: value});
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -88,7 +88,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea 
-              rows="7"
+              rows={7}
               name='message'
               value={form.message}
               onChange={handleChange}
@@ -108,7 +108,7 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn('right', 'tween', 0.2, 1)}
-        className='xl-flex-1 xl:h-auto md:h-[550px] h-[350px]'
+        className='xl:h-auto md:h-[550px] h-[350px]'
       >
         <EarthCanvas />
       </motion.div>

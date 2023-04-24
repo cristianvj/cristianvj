@@ -1,28 +1,31 @@
-import { Canvas } from '@react-three/fiber'
-import React, { Suspense } from 'react'
-import CanvasLoader from './CanvasLoader'
-import { OrbitControls, Preload } from '@react-three/drei'
-import Ball from './Ball'
+import { Suspense, FC } from 'react';
 
-const BallCanvas = ({ icon }) => {
+import CanvasLoader from './CanvasLoader';
+import Ball from './Ball';
 
-  return (
-    <Canvas
-      frameloop='demand'
-      shadows
-      dpr={[1, 2]}
-      gl={{ PreserveDrawingBuffer : true}}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-        />
-        <Ball imgUrl={icon}/>
-      </Suspense>
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Preload } from '@react-three/drei';
 
-      <Preload all />
-    </Canvas>
-  )
-}
+interface Props {
+  icon: string;
+};
 
-export default BallCanvas
+const BallCanvas: FC<Props> = ({ icon }) => (
+  <Canvas
+    frameloop='demand'
+    shadows
+    dpr={[1, 2]}
+    gl={{ preserveDrawingBuffer: true}}
+  >
+    <Suspense fallback={<CanvasLoader />}>
+      <OrbitControls
+        enableZoom={false}
+      />
+      <Ball imgUrl={icon}/>
+    </Suspense>
+
+    <Preload all />
+  </Canvas>
+);
+
+export default BallCanvas;

@@ -1,16 +1,32 @@
-import { motion } from 'framer-motion'
+import { FC } from 'react';
+
 import {
   VerticalTimeline,
   VerticalTimelineElement,
-} from 'react-vertical-timeline-component'
-import 'react-vertical-timeline-component/style.min.css'
-import { textVariant } from '../../motion'
-import { styles } from '../../styles/styles'
-import { SectionWrapper } from '../hoc'
-import { experiences } from '../../utils/constants'
+} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
+import { SectionWrapper } from '../hoc';
 
-const ExperienceCard = ({ experience }) => {
+import { motion } from 'framer-motion';
+import { textVariant } from '../../motion';
+import { styles } from '../../styles/styles';
+
+import { experiences } from '../../utils/constants';
+
+interface Props {
+  experience: {
+    title: string;
+    company_name: string;
+    icon: any;
+    iconBg: string;
+    date: string;
+    points: string[];
+  };
+};
+
+const ExperienceCard: FC<Props> = ({ experience }) => {
+
   return (
     <VerticalTimelineElement
       contentStyle={{

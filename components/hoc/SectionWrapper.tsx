@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { staggerContainer } from "../../motion";
+import { FC } from 'react';
 
-const StarWrapper = (Component, idName) =>
+const StarWrapper = (Component: FC, idName: string) =>
   function HOC() {
     return (
       <motion.section

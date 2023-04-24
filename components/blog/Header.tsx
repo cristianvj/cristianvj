@@ -29,7 +29,7 @@ const Header = () => {
             {
               navLinks.map((item, id) => (
                 <Link key={id} href={`/${item.slug}`}>
-                  <a className={`${currentRoute === item.slug ? "font-bold text-sky-500" : ""} md:float-right mt-2 align-middle text-sky-200 ml-4 text-lg md:text-xl hover:font-bold`}>
+                  <a className={`${currentRoute === item.slug ? "font-bold text-sky-500" : null} md:float-right mt-2 align-middle text-sky-200 ml-4 text-lg md:text-xl hover:font-bold`}>
                     {item.title}
                   </a>
                 </Link>
