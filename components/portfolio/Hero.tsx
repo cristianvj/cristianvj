@@ -19,14 +19,15 @@ function Hero() {
             </span>
           </h1>
           <p className={`text-sky-100 font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-1 `}>
-            I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
+            I develop 3D user interfaces <br className='sm:block hidden' />
+            and web apps
           </p>
         </div>
       </div>
 
       <ComputerCanvas/>
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+      <div className='absolute xs:bottom-10 bottom-5 w-full flex justify-center items-center'>
         <a href='#about'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
             <motion.div

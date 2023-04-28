@@ -20,9 +20,6 @@ const Header = () => {
                 Cristian Villota J.
               </p>
             </Link>
-            <p className="text-sky-200 md:ml-6 ml-0 text-shadow text-xs md:text-xl font-semibold">
-                Front end and 3D developer
-            </p>
           </div>
 
           <div className="hidden sm:float-left md:contents">
@@ -41,8 +38,8 @@ const Header = () => {
           }
           <div className="md:hidden">
             <div
-              className={`${isNavOpen ? "hidden" : ""} space-y-2 absolute top-4 right-5 px-8 py-8`}
-              onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+              className={`${isNavOpen ? "hidden" : ""} space-y-2 absolute top-1 right-5 px-8 py-8`}
+              onClick={() => setIsNavOpen((prev) => !prev)}
             >
               <span className="block h-0.5 w-8 animate-pulse bg-sky-100"></span>
               <span className="block h-0.5 w-8 animate-pulse bg-sky-100"></span>
