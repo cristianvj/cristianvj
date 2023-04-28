@@ -7,13 +7,12 @@ interface Props {
 };
 
 const Computers: FC<Props> = ({ isMobile }) => {
-
   const computer = useGLTF('./desktop_pc/scene.gltf');
   
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor='black' />
-      <pointLight intensity={1} position={[-.5,1.5,-1.5]}/>
+      <pointLight intensity={1} position={[-.5, 1.5, -1.5]}/>
       <spotLight 
         position={[-20, 50, 10]}
         angle={.12}

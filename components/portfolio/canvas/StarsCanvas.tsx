@@ -19,7 +19,7 @@ const Stars = (props: any) => {
   
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustrumCulled {...props}>
+      <Points ref={ref} positions={sphere} stride={4} frustrumCulled {...props}>
         <PointMaterial
           transparent
           color="#f272c8"
