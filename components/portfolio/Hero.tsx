@@ -1,8 +1,14 @@
-import { styles } from '../../styles/styles'
 import ComputerCanvas from './canvas/ComputerCanvas';
 import { motion } from 'framer-motion';
+// import { useRouter } from 'next/router'
 
 function Hero() {
+  /* Languiuage settings
+  const router = useRouter();
+  const { locale } = router;
+
+  console.log(locale)*/
+
   return (
     <section className="relative w-full height-hero-section mx-auto">
       <div className={`sm:px-16 px-6 absolute inset-0 top-[20px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
