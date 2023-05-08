@@ -1,13 +1,23 @@
 import { PostCard, Categories, PostWidget } from '../components';
 
-import type { NextPage, GetStaticProps } from 'next';
+import type { NextPage } from 'next';
 
 import { getPosts } from '../services';
 
 import { Post, PropsPostNode } from '../interfaces';
 import { FeaturedPosts } from '../sections';
+import { useEffect, useState } from 'react';
 
-const Blog: NextPage<PropsPostNode> = ({ posts }) => (
+const Blog: NextPage = () => {
+
+  const [posts, setPosts] = useState<any>([])
+
+  useEffect(() => {
+      getPosts()
+        .then((result) => setPosts(result));
+  }, []);
+
+  return (
   <div className="container mx-auto px-5 mb-8">
     <FeaturedPosts />
     <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
@@ -22,11 +32,6 @@ const Blog: NextPage<PropsPostNode> = ({ posts }) => (
       </div>
     </div>
   </div>
-)
-
-export const getStaticProps: GetStaticProps = async() => {
-  const posts: Post[] = (await getPosts());
-  return { props: { posts } };
-};
+)}
 
 export default Blog;

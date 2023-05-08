@@ -2,23 +2,35 @@ import React, { FC } from 'react';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import moment from 'moment';
 import { PropsPostContent } from '../../interfaces';
+import { grpahCMSImageLoader } from '../../utils/utils';
+import Image from 'next/image';
 
 const PostDetail: FC<PropsPostContent> = ({ post }) => (
   <>
     <div className="bg-white shadow-lg rounded-lg lg:p-12 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
-        <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+        <Image
+          unoptimized
+          loader={grpahCMSImageLoader}
+          src={post.featuredImage.url} 
+          alt="" 
+          className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" 
+          height={"500"}
+          width={"500"}
+        />
       </div>
       <div className="px-4 lg:px-0">
         <div className="flex items-center justify-center mb-4 w-full">
           <div className="hidden md:flex justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-            <img
-              alt={post.author.name}
-              height="30px"
-              width="30px"
-              className="align-middle rounded-full"
-              src={post.author.photo.url}
-            />
+              <Image
+                unoptimized
+                loader={grpahCMSImageLoader}
+                alt={post.author.name}
+                height="30px"
+                width="30px"
+                className="align-middle rounded-full"
+                src={post.author.photo.url}
+              />
             <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
           </div>
           <div className="font-medium text-gray-700">

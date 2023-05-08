@@ -34,7 +34,7 @@ export const navLinks: Menu[] = [
   },
   {
     title: "App",
-    slug: "app",
+    slug: "spaced-repetition",
   },
   {
     title: "Blog",

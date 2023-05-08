@@ -9,6 +9,8 @@ import { fadeIn, textVariant } from "../../motion";
 import { github } from "../../public/assets";
 import { styles } from "../../styles/styles";
 import { projects } from "../../utils/constants";
+import Image from "next/image";
+import { grpahCMSImageLoader } from "../../utils/utils";
 
 interface Props {
   index: number;
@@ -39,10 +41,14 @@ const ProjectCard: FC<Props> = ({
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'>
         <div className='relative w-full h-[230px]'>
-          <img
+          <Image
+            unoptimized
+            loader={grpahCMSImageLoader}
             src={image.src}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl'
+            width= {"600"}
+            height= {"400"}
           />
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
@@ -50,10 +56,14 @@ const ProjectCard: FC<Props> = ({
               onClick={() => window.open(source_code_link, "_blank")}
               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
             >
-              <img
+              <Image
+                unoptimized
+                loader={grpahCMSImageLoader}
                 src={github.src}
                 alt='source code'
                 className='w-1/2 h-1/2 object-contain'
+                width= {"40"}
+                height= {"40"}
               />
             </div>
           </div>

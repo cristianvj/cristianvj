@@ -13,6 +13,8 @@ import { textVariant } from '../../motion';
 import { styles } from '../../styles/styles';
 
 import { experiences } from '../../utils/constants';
+import Image from 'next/image';
+import { grpahCMSImageLoader } from '../../utils/utils';
 
 interface Props {
   experience: {
@@ -38,10 +40,14 @@ const ExperienceCard: FC<Props> = ({ experience }) => {
       iconStyle={{ background: experience.iconBg }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
-          <img
-            src={experience.icon.src}
-            alt={experience.company_name}
+          <Image
+            unoptimized
+            loader={grpahCMSImageLoader}
+            src={experience.icon.src} 
+            alt='web-development'
             className='w-[60%] h-[60%] object-contain'
+            width= {"60"}
+            height= {"60"}
           />
         </div>
       }

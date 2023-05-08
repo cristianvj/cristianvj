@@ -5,6 +5,8 @@ import moment from 'moment';
 import { getRecentPosts, getSimilarPosts } from '../../services';
 
 import { Category, Post } from '../../interfaces';
+import Image from 'next/image';
+import { grpahCMSImageLoader } from '../../utils/utils';
 
 interface Props {
   categories?: Category[] | string[];
@@ -36,10 +38,13 @@ const PostWidget: FC<Props> = ({ categories, slug }) => {
         relatedPosts.map( post => (
           <div key={post.title} className='flex items-center w-full mb-4'>
             <div className="w-15 flex-none">
-              <img 
-                src={post?.featuredImage?.url} 
-                alt={post.title}
-                style={{ width: "60px", height: "60px" }}
+              <Image
+                unoptimized
+                loader={grpahCMSImageLoader}
+                src={post.featuredImage.url} 
+                alt="" 
+                width= {"60"}
+                height= {"60"}
                 className="align-middle rounded-full" 
               />
             </div>
