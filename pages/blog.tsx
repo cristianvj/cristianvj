@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 const Blog: NextPage = () => {
 
-  const [posts, setPosts] = useState<any>([])
+  const [posts, setPosts] = useState<Post[]>([])
 
   useEffect(() => {
       getPosts()
