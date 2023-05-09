@@ -7,6 +7,8 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  workerThreads: false,
+  cpus: 1
 }
 
 module.exports = nextConfig
